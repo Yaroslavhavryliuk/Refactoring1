@@ -8,10 +8,10 @@ class Die:
         if face is not None:
             self.__face = face
         else:
-            self.roll() # Arjan: call roll immediately (die always has a face up)
+            self.roll() # Сall roll immediately (die always has a face up)
 
     def roll(self):
-        # ARJAN: Random now uses the number of sides and returns the face
+        # Random now uses the number of sides and returns the face
         self.__face = random.randint(1, self.sides)
         return self.__face
 
