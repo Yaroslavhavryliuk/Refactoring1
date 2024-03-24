@@ -113,10 +113,16 @@ class YahtzeeGame:
             if len(selected_dice) == 0:
                 break
 
-        rule = self.select_scoring()
+        while True:
+            rule = self.select_scoring()
 
-        points = self.scoreboard.assign_points(rule, self.hand)
-        print(f"Adding {points} points to {rule.name()}")
+            try:
+                points = self.scoreboard.assign_points(rule, self.hand)
+                print(f"Adding {points} points to {rule.name()}")
+                break
+            except Exception:
+                print("Rule already used\n")
+
         self.show_scoreboard_points()
 
         input("\nPress any key to continue")
