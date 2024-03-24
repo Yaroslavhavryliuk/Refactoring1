@@ -96,7 +96,11 @@ class YahtzeeGame:
         while True:
             # roll the dice
             print("\nRolling dice...")
-            self.hand.roll(selected_dice)
+            try:
+                self.hand.roll(selected_dice)
+            except IndexError as err:
+                print(str(err) + " Please try again\n")
+                rolls -= 1
             print(self.hand)
             rolls += 1
 
